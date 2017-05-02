@@ -9,7 +9,7 @@ class Router
   def run
     puts "Welcome to Restaurant Wagon"
 
-    while @running
+    while @running # infinite loop
       display_actions
       action = ask_user_for_action
       print `clear`
