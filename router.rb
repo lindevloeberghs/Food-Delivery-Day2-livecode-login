@@ -16,10 +16,10 @@ class Router
       @employee = @sessions_controller.sign_in
 
       while @employee
-        display_actions(@employee)
+        display_actions
         action = ask_user_for_action
         print `clear`
-        route_action(@employee, action)
+        route_action(action)
       end
 
     end
@@ -27,7 +27,7 @@ class Router
 
   private
 
-  def display_actions(employee)
+  def display_actions
     if @employee.manager?
       display_actions_for_manager
     else
@@ -59,7 +59,7 @@ class Router
     return gets.chomp.to_i
   end
 
-  def route_action(employee, action)
+  def route_action(action)
     if @employee.manager?
       route_action_for_manager(action)
     else
